@@ -4,12 +4,6 @@ pipeline {
         
     stages {
         
-        stage('Checkout'){
-           steps { 
-                url: 'https://github.com/atulpatil22494/inshine_frontend',
-                branch: 'main'
-           }
-        }
 
         stage('Build Docker'){
             steps{
