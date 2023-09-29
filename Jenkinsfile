@@ -1,28 +1,3 @@
-pipeline {
-    
-    agent any 
-        
-    stages {
-        
-        stage('Checkout'){
-           steps {
-                git credentialsId: '57adf257-3c13-4da7-9068-59675d3f7a62', 
-                url: 'https://github.com/iam-veeramalla/cicd-end-to-end',
-                branch: 'main'
-           }
-        }
-
-        stage('Build Docker'){
-            steps{
-                script{
-                    sh '''
-                    echo 'Buid Docker Image'
-                    docker build -t atulpatil22/jenkins_docker .
-                    docker run -dp 3000:3000 atulpatil22/jenkins_docker
-                    '''
-                }
-            }
-            
     pipeline {
     
     agent any 
@@ -47,8 +22,9 @@ pipeline {
                     '''
                 }
             }
-            
-     stage('Build and Push Docker Image') {
+        }
+        
+             stage('Build and Push Docker Image') {
       environment {
         DOCKER_IMAGE = "atulpatil22/jenkins_docker:${BUILD_NUMBER}"
         // DOCKERFILE_LOCATION = "java-maven-sonar-argocd-helm-k8s/spring-boot-app/Dockerfile"
@@ -64,13 +40,9 @@ pipeline {
         }
       }
     }
-        }
+   }
+  }
+       
 
 
-    }
-}
-        }
 
-
-    }
-}
