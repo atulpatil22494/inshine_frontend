@@ -15,6 +15,7 @@
                  docker build -t ${DOCKER_IMAGE} .
                  docker login -u atulpatil22 -p ${docker-cred}
                  docker push ${DOCKER_IMAGE}
+                 '''
 
               }
            }
