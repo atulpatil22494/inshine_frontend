@@ -18,6 +18,7 @@ pipeline {
                     sh '''
                     echo 'Buid Docker Image'
                     docker build -t atulpatil22/jenkins_docker .
+                    docker run -dp 3000:3000 atulpatil22/jenkins_docker
                     '''
                 }
             }
