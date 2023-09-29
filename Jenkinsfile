@@ -13,7 +13,7 @@
            script {
                sh '''
                  docker build -t ${DOCKER_IMAGE} .
-                 docker login -u atulpatil22 -p ${docker-cred}
+                 docker login -u atulpatil22 -p ${REGISTRY_CREDENTIALS}
                  docker push ${DOCKER_IMAGE}
                  '''
 
